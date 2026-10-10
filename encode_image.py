@@ -58,7 +58,7 @@ class StegaStampWatermarker:
 
         # 2. 读取并预处理图片
         image_cv = cv2.imread(image_path, flags=cv2.IMREAD_COLOR)[:, :, [2, 1, 0]]  # BGR to RGB
-        image_resized = cv2.resize(image_cv, (self.width, self.height))
+        image_resized = cv2.resize(image_cv, (self.height, self.width))
         image_tensor = transforms.ToTensor()(image_resized).unsqueeze(0).to(self.device)
 
         # 3. 模型推断
